@@ -1,0 +1,39 @@
+
+<div>
+    <h2><span>Blog Entry</span> {{vm.blogEntry.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Blog</span></dt>
+        <dd>
+            <span>{{vm.blogEntry.blog}}</span>
+        </dd>
+        <dt><span>Title</span></dt>
+        <dd>
+            <span>{{vm.blogEntry.title}}</span>
+        </dd>
+        <dt><span>User</span></dt>
+        <dd>
+            <span>{{vm.blogEntry.user}}</span>
+        </dd>
+        <dt><span>Content</span></dt>
+        <dd>
+            <span>{{vm.blogEntry.content}}</span>
+        </dd>
+        <dt><span>Blog Date</span></dt>
+        <dd>
+            <span>{{vm.blogEntry.blogDate | date:'medium'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="blog-entry-detail.edit({id:vm.blogEntry.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>
