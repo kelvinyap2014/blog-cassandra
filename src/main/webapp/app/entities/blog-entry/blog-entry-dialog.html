@@ -14,18 +14,6 @@
                     ng-model="vm.blogEntry.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" for="field_blog">Blog</label>
-            <input type="text" class="form-control" name="blog" id="field_blog"
-                    ng-model="vm.blogEntry.blog"
-                    required/>
-            <div ng-show="editForm.blog.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.blog.$error.required">
-                    This field is required.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
             <label class="control-label" for="field_title">Title</label>
             <input type="text" class="form-control" name="title" id="field_title"
                     ng-model="vm.blogEntry.title"
@@ -33,18 +21,6 @@
             <div ng-show="editForm.title.$invalid">
                 <p class="help-block"
                     ng-show="editForm.title.$error.required">
-                    This field is required.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="field_user">User</label>
-            <input type="text" class="form-control" name="user" id="field_user"
-                    ng-model="vm.blogEntry.user"
-                    required/>
-            <div ng-show="editForm.user.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.user.$error.required">
                     This field is required.
                 </p>
             </div>
