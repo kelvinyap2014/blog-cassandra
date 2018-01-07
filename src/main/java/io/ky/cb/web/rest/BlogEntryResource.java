@@ -2,9 +2,11 @@ package io.ky.cb.web.rest;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
@@ -95,7 +97,7 @@ public class BlogEntryResource {
 		final Optional<String> userLogin = SecurityUtils.getCurrentUserLogin();
 		if (userLogin.isPresent()) {
 			blogEntry.setUser(userLogin.get());
-			blogEntry.setBlog(userLogin + "'s blog");
+			blogEntry.setBlog(userLogin.get() + "'s blog");
 		}
 	}
 
@@ -108,8 +110,14 @@ public class BlogEntryResource {
     @Timed
     public List<BlogEntry> getAllBlogEntries() {
         this.log.debug("REST request to get all BlogEntries");
-        return this.blogEntryRepository.findAll();
-        }
+		final Optional<String> userLogin = SecurityUtils.getCurrentUserLogin();
+		if (userLogin.isPresent()) {
+			return this.blogEntryRepository.findAll().stream().filter(b -> userLogin.get().equals(b.getUser()))
+					.collect(Collectors.toList());
+		}
+
+		return Collections.emptyList();
+	}
 
     /**
      * GET  /blog-entries/:id : get the "id" blogEntry.
