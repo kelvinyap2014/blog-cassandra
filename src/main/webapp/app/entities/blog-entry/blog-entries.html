@@ -33,7 +33,7 @@
                     <td>{{blogEntry.blog}}</td>
                     <td>{{blogEntry.title}}</td>
                     <td>{{blogEntry.user}}</td>
-                    <td>{{blogEntry.content}}</td>
+                    <td ng-bind-html="blogEntry.content"></td>
                     <td>{{blogEntry.blogDate | date:'medium'}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
