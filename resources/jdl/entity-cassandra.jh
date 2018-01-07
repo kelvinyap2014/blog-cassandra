@@ -1,0 +1,9 @@
+
+entity BlogEntry {
+        blog String required,
+	title String required,
+        user String required,
+	content String required,
+	blogDate Date required
+}
+
