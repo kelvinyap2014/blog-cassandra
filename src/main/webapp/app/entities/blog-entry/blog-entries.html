@@ -16,7 +16,7 @@
     <br/>
     <div ng-repeat="blogEntry in vm.blogEntries track by blogEntry.id">
         <h2>{{blogEntry.title}}</h2>
-        <div>Posted on {{blogEntry.date | date:'medium'}} by {{blogEntry.user}}</div>
+        <div>Posted on {{blogEntry.blogDate | date:'medium'}} by {{blogEntry.user}}</div>
         <div ng-bind-html="blogEntry.content"></div>
         <div class="btn-group">
             <button type="submit"
